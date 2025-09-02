@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+<main class="container">
+  <h2>Resultado da Análise</h2>
+  <p><strong>Cliente:</strong> <%= data.customer %></p>
+
+  <% if (data.loans && data.loans.length) { %>
+    <ul>
+      <% data.loans.forEach(l => { %>
+        <li><strong><%= l.type %></strong> — taxa: <%= l.interest_rate %>%</li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>O cliente não se qualifica para nenhuma modalidade de crédito.</p>
+  <% } %>
+
+  <p><a href="/">Nova consulta</a></p>
+</main>
+<%- include('partials/footer') %>
